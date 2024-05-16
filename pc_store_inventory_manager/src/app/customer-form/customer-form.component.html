@@ -1,1 +1,21 @@
-<p>customer-form works!</p>
+<div class="row">
+    <div class="col-md-6">
+        <form [formGroup]="customerForm">
+            <div class="mb-3">
+                <label for="name" class="form-label">Név</label>
+                <input type="text" class="form-control" id="name" formControlName="name">
+            </div>
+            <div class="mb-3">
+                <label for="address" class="form-label">Cím</label>
+                <input type="text" class="form-control" id="address" formControlName="address">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" class="form-control" id="email" formControlName="email">
+            </div>
+        </form>
+        <div class="text-end">
+            <button class="btn btn-outline-primary" (click)="saveCustomer()">Mentés</button>
+        </div>
+    </div>
+</div>

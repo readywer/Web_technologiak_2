@@ -1,1 +1,45 @@
-<p>computer-form works!</p>
+<div class="row">
+    <div class="col-md-6">
+        <form [formGroup]="computerForm">
+            <div class="mb-3">
+                <label for="name" class="form-label">Név</label>
+                <input type="text" class="form-control" id="name" formControlName="name">
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Ár</label>
+                <input type="number" class="form-control" id="price" formControlName="price">
+            </div>
+            <div class="mb-3">
+                <label for="cpu" class="form-label">Processzor</label>
+                <input type="text" class="form-control" id="cpu" formControlName="cpu">
+            </div>
+            <div class="mb-3">
+                <label for="cooler" class="form-label">Hűtő</label>
+                <input type="text" class="form-control" id="cooler" formControlName="cooler">
+            </div>
+            <div class="mb-3">
+                <label for="mobo" class="form-label">Alaplap</label>
+                <input type="text" class="form-control" id="mobo" formControlName="mobo">
+            </div>
+            <div class="mb-3">
+                <label for="ram" class="form-label">Memória</label>
+                <input type="text" class="form-control" id="ram" formControlName="ram">
+            </div>
+            <div class="mb-3">
+                <label for="gpu" class="form-label">Videókártya</label>
+                <input type="text" class="form-control" id="gpu" formControlName="gpu">
+            </div>
+            <div class="mb-3">
+                <label for="psu" class="form-label">Tápegység</label>
+                <input type="text" class="form-control" id="psu" formControlName="psu">
+            </div>
+            <div class="mb-3">
+                <label for="case" class="form-label">Ház</label>
+                <input type="text" class="form-control" id="case" formControlName="case">
+            </div>
+        </form>
+        <div class="text-end">
+            <button class="btn btn-outline-primary" (click)="saveComputer()">Mentés</button>
+        </div>
+    </div>
+</div>
