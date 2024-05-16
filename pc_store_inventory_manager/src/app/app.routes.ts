@@ -25,15 +25,18 @@ export const routes: Routes = [
     },
     {
         path: 'computer-add',
-        component: ComputerFormComponent
+        component: ComputerFormComponent,
+        canActivate: [() => inject(AuthService).preventGuestAccess()]
     },
     {
         path: 'computer-edit/:id',
-        component: ComputerFormComponent
+        component: ComputerFormComponent,
+        canActivate: [() => inject(AuthService).preventGuestAccess()]
     },
     {
         path: 'customer',
-        component: CustomerListComponent
+        component: CustomerListComponent,
+        canActivate: [() => inject(AuthService).preventGuestAccess()]
     },
     {
         path: 'customer-add',
@@ -41,11 +44,13 @@ export const routes: Routes = [
     },
     {
         path: 'customer-edit/:id',
-        component: CustomerFormComponent
+        component: CustomerFormComponent,
+        canActivate: [() => inject(AuthService).preventGuestAccess()]
     },
     {
         path: 'purchase',
-        component: PurchaseListComponent
+        component: PurchaseListComponent,
+        canActivate: [() => inject(AuthService).preventGuestAccess()]
     },
     {
         path: 'purchase-add',
@@ -53,6 +58,7 @@ export const routes: Routes = [
     },
     {
         path: 'purchase-edit/:id',
-        component: PurchaseFormComponent
+        component: PurchaseFormComponent,
+        canActivate: [() => inject(AuthService).preventGuestAccess()]
     }
 ];

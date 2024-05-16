@@ -13,8 +13,8 @@ export function getRouter() {
     const customercontroller = new CustomerController();
     const userController = new UserController();
 
-    router.get('/user', userController.getAll);
-    router.get('/user/:id', userController.getOne);
+    router.get('/user',checkUser, userController.getAll);
+    router.get('/user/:id',checkUser, userController.getOne);
     router.post('/user', userController.create);
     router.post('/user/login', userController.login);
     router.put('/user', checkUser, userController.update);
@@ -34,7 +34,7 @@ export function getRouter() {
 
     router.get('/customer', checkUser, customercontroller.getAll);
     router.get('/customer/:id', checkUser, customercontroller.getOne);
-    router.post('/customer', checkUser, customercontroller.create);
+    router.post('/customer', customercontroller.create);
     router.put('/customer', checkUser, customercontroller.update);
     router.delete('/customer/:id', checkUser, customercontroller.delete);
 

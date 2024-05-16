@@ -15,6 +15,10 @@
             </div>
         </form>
         <form [formGroup]="purchaseForm">
+            <div class="mb-3" *ngIf="!isNewCustomer">
+                <label class="label h6">Vásárló: </label>
+                <span class="h6"> {{purchaseForm.value.customer?.name}}</span>
+            </div>
             <div class="mb-3">
                 <label for="computer" class="form-label">Számítógép</label>
                 <select class="form-select" id="computer" formControlName="computer">
@@ -32,7 +36,7 @@
             </div>
         </form>
         <div class="text-end">
-            <button class="btn btn-outline-primary" (click)="savePurchaseAndCustomer()" >Vásárlás</button>
+            <button class="btn btn-outline-primary" (click)="savePurchaseAndCustomer()">Vásárlás</button>
         </div>
     </div>
 </div>
