@@ -26,22 +26,21 @@ export class PurchaseFormComponent implements OnInit {
   selectedCustomer: CustomerDTO = {} as CustomerDTO;
 
   isNewPurchase = true;
+  isNewCustomer = true;
 
   purchaseForm = this.formBuilder.group<PurchaseDTO>({
     id: 0,
     date: '',
     deliverytype: '',
     computer: null,
-    customer: null
+    customer: null,
   });
-
-  isNewCustomer = true;
 
   customerForm = this.formBuilder.group<CustomerDTO>({
     id: 0,
     name: '',
     address: '',
-    email: ''
+    email: '',
   });
 
   ngOnInit(): void {
@@ -59,14 +58,20 @@ export class PurchaseFormComponent implements OnInit {
     }
   }
 
-  savePurchase() {
+  async savePurchaseAndCustomer(){
     this.saveCustomer();
+    this.isNewCustomer = false;
+    await new Promise(resolve => setTimeout(resolve, 100));
+    this.savePurchase();
+  }
+
+  savePurchase() {
     if (this.isNewPurchase) {
       this.purchaseForm.patchValue({
-       customer: this.selectedCustomer
+       customer: this.selectedCustomer,
+       date: new Date().toISOString()
       });
       const purchase = this.purchaseForm.value as PurchaseDTO;
-      purchase.date = new Date().toISOString();
       this.purchaseService.create(purchase).subscribe({
         next: () => {
           this.router.navigateByUrl('/computer');
@@ -94,8 +99,8 @@ export class PurchaseFormComponent implements OnInit {
 
     if (this.isNewCustomer) {
       this.customerService.create(customer).subscribe({
-        next: () => {
-          this.router.navigateByUrl('/customer');
+        next: (res) => {
+          this.selectedCustomer=res;
         },
         error: (err) => {
           console.error(err);

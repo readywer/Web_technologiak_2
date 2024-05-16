@@ -27,7 +27,7 @@ export class CustomerListComponent implements OnInit {
   }
 
   goToCustomerForm(id: number) {
-    this.router.navigate(['/edit-customer', id]);
+    this.router.navigate(['/customer-edit', id]);
   }
 
   deleteCustomer(customer: CustomerDTO) {

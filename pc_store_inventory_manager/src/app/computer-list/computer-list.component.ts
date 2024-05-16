@@ -27,7 +27,7 @@ export class ComputerListComponent implements OnInit {
   }
 
   goToComputerForm(id: number) {
-    this.router.navigate(['/edit-computer', id]);
+    this.router.navigate(['/computer-edit', id]);
   }
 
   deleteComputer(computer: ComputerDTO) {

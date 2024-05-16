@@ -17,8 +17,8 @@
                 <button class="btn btn-danger btn-sm" (click)="deletePurchase(purchase)">Törlés</button>
             </td>
             <td>{{purchase.id}}</td>
-            <td>{{purchase.customer}}</td>
-            <td>{{purchase.computer}}</td>
+            <td>{{purchase.customer?.name}}</td>
+            <td>{{purchase.computer?.name}}</td>
             <td>{{purchase.date}}</td>
             <td>{{purchase.deliverytype}}</td>
             <td *ngIf="authService.isLoggedIn()">

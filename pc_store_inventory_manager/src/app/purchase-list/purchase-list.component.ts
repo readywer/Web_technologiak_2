@@ -27,7 +27,7 @@ export class PurchaseListComponent implements OnInit {
   }
 
   goToPurchaseForm(id: number) {
-    this.router.navigate(['/edit-purchase', id]);
+    this.router.navigate(['/purchase-edit', id]);
   }
 
   deletePurchase(purchase: PurchaseDTO) {
