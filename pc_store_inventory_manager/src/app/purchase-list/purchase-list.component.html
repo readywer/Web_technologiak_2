@@ -1,1 +1,30 @@
-<p>purchase-list works!</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th *ngIf="authService.isLoggedIn()">Törlés</th>
+            <th>ID</th>
+            <th>Vásárló</th>
+            <th>Számítógép</th>
+            <th>Időpont</th>
+            <th>Szállítás fajta</th>
+            <th *ngIf="authService.isLoggedIn()">Módosítás</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for( purchase of purchases; track $index){
+        <tr>
+            <td *ngIf="authService.isLoggedIn()">
+                <button class="btn btn-danger btn-sm" (click)="deletePurchase(purchase)">Törlés</button>
+            </td>
+            <td>{{purchase.id}}</td>
+            <td>{{purchase.customer}}</td>
+            <td>{{purchase.computer}}</td>
+            <td>{{purchase.date}}</td>
+            <td>{{purchase.deliverytype}}</td>
+            <td *ngIf="authService.isLoggedIn()">
+                <button class="btn btn-primary btn-sm" (click)="goToPurchaseForm(purchase.id)">Módosítás</button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

@@ -1,1 +1,28 @@
-<p>customer-list works!</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th *ngIf="authService.isLoggedIn()">Törlés</th>
+            <th>ID</th>
+            <th>Név</th>
+            <th>Cím</th>
+            <th>Email</th>
+            <th *ngIf="authService.isLoggedIn()">Módosítás</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for( customer of customers; track $index){
+        <tr>
+            <td *ngIf="authService.isLoggedIn()">
+                <button class="btn btn-danger btn-sm" (click)="deleteCustomer(customer)">Törlés</button>
+            </td>
+            <td>{{customer.id}}</td>
+            <td>{{customer.name}}</td>
+            <td>{{customer.address}}</td>
+            <td>{{customer.email}}</td>
+            <td *ngIf="authService.isLoggedIn()">
+                <button class="btn btn-primary btn-sm" (click)="goToCustomerForm(customer.id)">Módosítás</button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

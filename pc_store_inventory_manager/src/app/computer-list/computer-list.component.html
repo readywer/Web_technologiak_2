@@ -1,1 +1,40 @@
-<p>computer-list works!</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th *ngIf="authService.isLoggedIn()">Törlés</th>
+            <th>ID</th>
+            <th>Név</th>
+            <th>Ár</th>
+            <th>Processzor</th>
+            <th>Hűtő</th>
+            <th>Alaplap</th>
+            <th>Memória</th>
+            <th>Videókártya</th>
+            <th>Táp</th>
+            <th>Ház</th>
+            <th *ngIf="authService.isLoggedIn()">Módosítás</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for( computer of computers; track $index){
+        <tr>
+            <td *ngIf="authService.isLoggedIn()">
+                <button class="btn btn-danger btn-sm" (click)="deleteComputer(computer)">Törlés</button>
+            </td>
+            <td>{{computer.id}}</td>
+            <td>{{computer.name}}</td>
+            <td>{{computer.price}}</td>
+            <td>{{computer.cpu}}</td>
+            <td>{{computer.cooler}}</td>
+            <td>{{computer.mobo}}</td>
+            <td>{{computer.ram}}</td>
+            <td>{{computer.gpu}}</td>
+            <td>{{computer.psu}}</td>
+            <td>{{computer.case}}</td>
+            <td *ngIf="authService.isLoggedIn()">
+                <button class="btn btn-primary btn-sm" (click)="goToComputerForm(computer.id)">Módosítás</button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
