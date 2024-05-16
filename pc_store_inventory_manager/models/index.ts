@@ -21,7 +21,7 @@ export interface PurchaseDTO {
     date: string;
     deliverytype: string;
     computer: ComputerDTO | null;
-    customer: ComputerDTO | null;
+    customer: CustomerDTO | null;
 }
 export interface UserDTO {
     id: number;

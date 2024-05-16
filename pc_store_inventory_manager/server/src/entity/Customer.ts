@@ -17,6 +17,7 @@ export class Customer implements CustomerDTO {
     @Column()
     email: string;
 
-    @OneToMany(() => Purchase, (purchase) => purchase.computer)
+    @OneToMany(() => Purchase, (purchase) => purchase.customer)
     purchase: Purchase[];
+
 }

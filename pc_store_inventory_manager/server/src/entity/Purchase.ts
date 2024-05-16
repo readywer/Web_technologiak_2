@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne } from "typeorm"
 import { Computer } from './Computer';
-import { ComputerDTO, PurchaseDTO } from "../../../models";
+import { ComputerDTO, CustomerDTO, PurchaseDTO } from "../../../models";
 import { Customer } from "./Customer";
 
 @Entity()
@@ -19,5 +19,6 @@ export class Purchase implements PurchaseDTO {
     computer: ComputerDTO;
 
     @ManyToOne(() => Customer, (customer) => customer.purchase, { eager: true })
-    customer: ComputerDTO;
+    customer: CustomerDTO;
+
 }

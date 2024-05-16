@@ -37,4 +37,5 @@ export class Computer implements ComputerDTO {
 
     @OneToMany(() => Purchase, (purchase) => purchase.computer)
     purchase: Purchase[];
+
 }
