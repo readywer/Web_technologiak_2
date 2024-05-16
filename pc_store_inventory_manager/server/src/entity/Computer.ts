@@ -12,7 +12,7 @@ export class Computer implements ComputerDTO {
     name: string;
 
     @Column()
-    price: string;
+    price: number;
 
     @Column()
     cpu: string;

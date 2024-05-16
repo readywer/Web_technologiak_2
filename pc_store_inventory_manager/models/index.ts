@@ -7,7 +7,7 @@ export interface CustomerDTO {
 export interface ComputerDTO {
     id: number;
     name: string;
-    price: string;
+    price: number;
     cpu: string;
     cooler: string;
     mobo: string;

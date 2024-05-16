@@ -52,7 +52,7 @@ export const routes: Routes = [
         component: PurchaseFormComponent
     },
     {
-        path: 'purchase-edit',
+        path: 'purchase-edit/:id',
         component: PurchaseFormComponent
     }
 ];
