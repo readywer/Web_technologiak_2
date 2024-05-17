@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Road_Data';
+  title = 'Számítógép Bolt';
 
   authService = inject(AuthService);
   private toastr = inject(ToastrService);
